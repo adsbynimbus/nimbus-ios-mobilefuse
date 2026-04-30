@@ -153,7 +153,7 @@ final class NimbusMobileFuseAdController: AdController, @preconcurrency IMFAdCal
     
     func onUserEarnedReward() {
         Nimbus.Log.ad.debug("MobileFuse Event: \(#function)")
-        sendNimbusEvent(.completed)
+        sendNimbusEvent(.rewardEarned)
     }
     
     func onAdClosed() {
