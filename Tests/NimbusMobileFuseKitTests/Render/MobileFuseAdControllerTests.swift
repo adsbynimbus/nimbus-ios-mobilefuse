@@ -69,10 +69,10 @@ final class MobileFuseAdControllerTests: XCTestCase {
 }
 
 extension MobileFuseAdControllerTests: AdController.Delegate {
-    func didReceiveNimbusEvent(controller: AdController, event: AdEvent) {
+    func didReceiveNimbusEvent(event: AdEvent) {
     }
     
-    func didReceiveNimbusError(controller: AdController, error: NimbusError) {
+    func didReceiveNimbusError(error: NimbusError) {
         
     }
 }
