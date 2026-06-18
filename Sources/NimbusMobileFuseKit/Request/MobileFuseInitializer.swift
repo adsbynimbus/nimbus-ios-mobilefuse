@@ -29,7 +29,7 @@ class MobileFuseInitializer: NSObject {
     }
 }
 
-extension MobileFuseInitializer: @preconcurrency IMFInitializationCallbackReceiver {
+extension MobileFuseInitializer: @MainActor IMFInitializationCallbackReceiver {
     func onInitSuccess(_ appId: String!, withPublisherId publisherId: String!) {
         Nimbus.Log.lifecycle.debug("MobileFuse SDK initialization completed")
         state = .initialized

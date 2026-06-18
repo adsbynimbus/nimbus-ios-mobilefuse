@@ -10,7 +10,8 @@ import UIKit
 import NimbusKit
 import MobileFuseSDK
 
-final class NimbusMobileFuseAdController: AdController, @preconcurrency IMFAdCallbackReceiver {
+// Internal: Do NOT implement delegate conformance as separate extensions as the methods will not be found in runtime when built as a static library
+final class NimbusMobileFuseAdController: AdController, @MainActor IMFAdCallbackReceiver {
     
     // MARK: - Properties
     
@@ -166,5 +167,3 @@ final class NimbusMobileFuseAdController: AdController, @preconcurrency IMFAdCal
         sendNimbusEvent(.clicked)
     }
 }
-
-// Internal: Do NOT implement delegate conformance as separate extensions as the methods won't not be found in runtime when built as a static library
