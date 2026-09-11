@@ -13,16 +13,16 @@ protocol MobileFuseRequestBridgeType: Sendable {
 }
 
 final class MobileFuseRequestBridge: MobileFuseRequestBridgeType {
-    public init() {}
+    init() {}
     
     @inlinable
-    public static func set(coppa: Bool) {
+    static func set(coppa: Bool) {
         let preferences: MobileFusePrivacyPreferences = MobileFuse.getPrivacyPreferences() ?? MobileFusePrivacyPreferences()
         preferences.setSubjectToCoppa(coppa)
         MobileFuse.setPrivacyPreferences(preferences)
     }
     
-    public func tokenData() async throws -> [String: String] {
+    func tokenData() async throws -> [String: String] {
         let tokenRequest = MFBiddingTokenRequest()
         tokenRequest.partner = .MOBILEFUSE_PARTNER_NIMBUS
         
