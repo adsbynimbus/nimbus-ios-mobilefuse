@@ -26,7 +26,7 @@ final class MobileFuseRequestBridge: MobileFuseRequestBridgeType {
         let tokenRequest = MFBiddingTokenRequest()
         tokenRequest.partner = .MOBILEFUSE_PARTNER_NIMBUS
         
-        let tokenData = await withUnsafeContinuation { continuation in
+        let tokenData = await withCheckedContinuation { continuation in
             MFBiddingTokenProvider.getTokenData(with: tokenRequest) { data in
                 continuation.resume(returning: data)
             }
