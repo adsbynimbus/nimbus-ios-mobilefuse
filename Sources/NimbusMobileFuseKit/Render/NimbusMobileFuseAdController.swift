@@ -142,6 +142,18 @@ final class NimbusMobileFuseAdController: AdController, @MainActor IMFAdCallback
         sendNimbusError(.mobileFuse(stage: .render, detail: message))
     }
     
+    func onAdError(_ ad: MFAd!, withError error: MFAdError!) {
+        sendNimbusError(.mobileFuse(stage: .render, detail: error?.message() ?? error?.localizedDescription))
+    }
+    
+    func onAdNotFilled() {
+        sendNimbusError(.mobileFuse(stage: .render, detail: "No ad available"))
+    }
+    
+    func onAdExpired() {
+        sendNimbusError(.mobileFuse(stage: .render, detail: "Ad expired"))
+    }
+    
     func onAdRendered() {
         Nimbus.Log.ad.debug("MobileFuse Event: \(#function)")
         
