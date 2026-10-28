@@ -239,7 +239,7 @@ struct MobileFuseAdControllerTests {
         let stubs = MFAdStubs(MFBannerAd.self)
         defer { stubs.restore() }
 
-        let adController = NimbusMobileFuseAdController(
+        let adController = MobileFuseAdController(
             response: NimbusResponse(id: "", bid: .init(mtype: .static, adm: bidToken, price: 0, ext: .init())),
             isBlocking: false,
             isRewarded: false,
@@ -288,14 +288,14 @@ struct MobileFuseAdControllerTests {
         var testDescription: String { "\(self)" }
     }
 
-    private func makeAdController(_ format: Format) -> (NimbusMobileFuseAdController, MockDelegate) {
+    private func makeAdController(_ format: Format) -> (MobileFuseAdController, MockDelegate) {
         let mtype: NimbusResponse.Bid.MarkupType = switch format {
         case .banner, .interstitial: .static
         case .native: .native
         case .rewarded: .video
         }
 
-        let adController = NimbusMobileFuseAdController(
+        let adController = MobileFuseAdController(
             response: NimbusResponse(id: "", bid: .init(
                 mtype: mtype,
                 adm: bidToken,
@@ -318,8 +318,8 @@ struct MobileFuseAdControllerTests {
         _ markupType: NimbusResponse.Bid.MarkupType,
         isBlocking: Bool,
         isRewarded: Bool = false
-    ) -> NimbusMobileFuseAdController {
-        NimbusMobileFuseAdController(
+    ) -> MobileFuseAdController {
+        MobileFuseAdController(
             response: NimbusResponse(id: "", bid: .init(mtype: markupType, adm: "", price: 0, ext: .init())),
             isBlocking: isBlocking,
             isRewarded: isRewarded,

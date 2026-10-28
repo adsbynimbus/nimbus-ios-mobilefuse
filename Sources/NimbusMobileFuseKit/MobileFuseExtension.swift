@@ -24,7 +24,7 @@ public struct MobileFuseExtension: NimbusRequestExtension, NimbusRenderExtension
     public var network: String { "mobilefusesdk" }
     
     @_documentation(visibility: internal)
-    public var controllerType: AdController.Type { NimbusMobileFuseAdController.self }
+    public var controllerType: AdController.Type { MobileFuseAdController.self }
     
     @_documentation(visibility: internal)
     public let interceptor: any NimbusRequest.Interceptor
@@ -40,7 +40,7 @@ public struct MobileFuseExtension: NimbusRequestExtension, NimbusRenderExtension
     /// }
     /// ```
     public init() {
-        self.interceptor = NimbusMobileFuseRequestInterceptor()
+        self.interceptor = MobileFuseRequestInterceptor()
         
         Task { @MainActor in
             MobileFuseInitializer.shared.initIfNeeded()

@@ -1,5 +1,5 @@
 //
-//  NimbusMobileFuseRequestInterceptor.swift
+//  MobileFuseRequestInterceptor.swift
 //  NimbusMobileFuseKit
 //  Created on 8/2/24
 //  Copyright © 2024 Nimbus Advertising Solutions Inc. All rights reserved.
@@ -9,7 +9,7 @@ import Foundation
 import NimbusKit
 import MobileFuseSDK
 
-final class NimbusMobileFuseRequestInterceptor: Sendable {
+final class MobileFuseRequestInterceptor: Sendable {
     /// Bridge that communicates with MobileFuse SDK
     private let bridge: MobileFuseRequestBridgeType
     
@@ -22,7 +22,7 @@ final class NimbusMobileFuseRequestInterceptor: Sendable {
     }
 }
 
-extension NimbusMobileFuseRequestInterceptor: NimbusRequest.Interceptor {
+extension MobileFuseRequestInterceptor: NimbusRequest.Interceptor {
     func modifyRequest(request: NimbusRequest) async throws -> [NimbusRequest.Delta] {
         let tokenData = try await bridge.tokenData()
         try Task.checkCancellation()

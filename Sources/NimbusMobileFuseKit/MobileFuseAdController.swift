@@ -1,5 +1,5 @@
 //
-//  NimbusMobileFuseAdController.swift
+//  MobileFuseAdController.swift
 //  NimbusMobileFuseKit
 //
 //  Created on 9/8/23.
@@ -11,7 +11,7 @@ import NimbusKit
 import MobileFuseSDK
 
 // Internal: Do NOT implement delegate conformance as separate extensions as the methods will not be found in runtime when built as a static library
-final class NimbusMobileFuseAdController: AdController, @MainActor IMFAdCallbackReceiver {
+final class MobileFuseAdController: AdController, @MainActor IMFAdCallbackReceiver {
     
     // MARK: - Properties
     

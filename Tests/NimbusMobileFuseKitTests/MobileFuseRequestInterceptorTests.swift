@@ -1,5 +1,5 @@
 //
-//  NimbusMobileFuseRequestModifierTests.swift
+//  MobileFuseRequestInterceptorTests.swift
 //  NimbusMobileFuseKitTests
 //
 //  Created on 9/12/23.
@@ -10,8 +10,8 @@
 @testable import NimbusKit
 import Testing
 
-@Suite("MobileFuse request interceptor tests") struct NimbusMobileFuseRequestInterceptorTests {
-    let interceptor = NimbusMobileFuseRequestInterceptor(
+@Suite("MobileFuse request interceptor tests") struct MobileFuseRequestInterceptorTests {
+    let interceptor = MobileFuseRequestInterceptor(
         bridge: MockRequestBridge({ Self.mobileFuseData })
     )
     
@@ -33,7 +33,7 @@ import Testing
     }
     
     @Test func mobileFuseTokenDataGetsInsertedIntoRequest() async throws {
-        var request = try await Nimbus.bannerAd(position: "position", size: .banner).adRequest!.request
+        var request = await Nimbus.bannerAd(position: "position", size: .banner).adRequest!.request
         request.interceptors = []
         request.interceptors.append(interceptor)
         try await request.modifyRequestWithExtras(

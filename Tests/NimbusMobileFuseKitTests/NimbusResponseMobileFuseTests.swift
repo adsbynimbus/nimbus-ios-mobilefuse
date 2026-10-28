@@ -1,5 +1,5 @@
 //
-//  NimbusAd_MobileFuseTests.swift
+//  NimbusResponseMobileFuseTests.swift
 //  NimbusMobileFuseKitTests
 //
 //  Created on 9/14/23.
@@ -11,7 +11,7 @@ import NimbusKit
 @testable import NimbusMobileFuseKit
 import MobileFuseSDK
 
-final class NimbusAd_MobileFuseTests: XCTestCase {
+final class NimbusResponseMobileFuseTests: XCTestCase {
     
     @MainActor
     func test_mobile_fuse_banner_size_translation() throws {
