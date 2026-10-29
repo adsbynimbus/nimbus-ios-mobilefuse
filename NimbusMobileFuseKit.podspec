@@ -18,5 +18,5 @@ Pod::Spec.new do |spec|
     }
 
     spec.dependency 'NimbusSDK/NimbusKit', '~> 3'
-    spec.dependency 'MobileFuseSDK', '~> 1.9'
+    spec.dependency 'MobileFuseSDK', '~> 1.10'
 end
